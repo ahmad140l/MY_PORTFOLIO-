@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>M. Ahmad • Frontend Developer</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root{
+      --glass: rgba(255,255,255,0.08);
+      --stroke: rgba(255,255,255,0.18);
+      --neon1:#00ffe0; --neon2:#a770ef; --neon3:#39C1FF;
+    }
+    body{
+      background: radial-gradient(1200px 600px at 10% 10%, #1c2a44 0%, transparent 60%),
+                 radial-gradient(900px 500px at 90% 0%, #2a1749 0%, transparent 60%),
+                 linear-gradient(135deg,#0f0c29,#302b63,#24243e);
+      font-family: 'Poppins', sans-serif;
+      color:#fff;
+    }
+    .blob{filter: blur(60px); opacity:.35; position: absolute; z-index:0; pointer-events:none;}
+    .blob.one{width:380px;height:380px;background:#6a00ff; top:8%; left:8%; animation: float 12s ease-in-out infinite;}
+    .blob.two{width:420px;height:420px;background:#00e7ff; bottom:12%; right:10%; animation: float 14s ease-in-out infinite reverse;}
+    @keyframes float{0%,100%{transform: translateY(0) translateX(0)} 50%{transform: translateY(-30px) translateX(20px)}}
+
+    .glass{background: var(--glass); backdrop-filter: blur(18px);
+      border:1px solid var(--stroke); border-radius: 22px; box-shadow:0 20px 50px rgba(0,0,0,.45)}
+    .lift{transition: transform .4s ease, box-shadow .4s ease; transform-style: preserve-3d}
+    .lift:hover{transform: translateY(-10px) rotateX(2deg) rotateY(-2deg); box-shadow:0 30px 80px rgba(0,0,0,.55)}
+
+    .neon{background: linear-gradient(90deg,var(--neon1),var(--neon2),var(--neon3)); -webkit-background-clip:text; -webkit-text-fill-color:transparent}
+    .chip{background: linear-gradient(135deg, rgba(0,255,224,.15), rgba(167,112,239,.12)); border:1px solid rgba(255,255,255,.18); padding:.5rem 1rem; border-radius:9999px; transition: transform .2s ease;}
+    .chip:hover{transform: translateY(-3px) scale(1.05)}
+    .gbtn{background-image: linear-gradient(135deg, var(--neon1), var(--neon2)); color:#000; font-weight:bold; border-radius:12px; padding:.75rem 1.25rem;}
+    .gbtn:hover{filter:brightness(1.1)}
+  </style>
+</head>
+<body class="relative min-h-screen">
+  <span class="blob one"></span>
+  <span class="blob two"></span>
+
+  <header class="sticky top-0 z-20">
+    <nav class="mx-auto max-w-6xl mt-4 glass lift px-6 py-4 flex items-center justify-between">
+      <div class="text-xl font-semibold neon">M. Ahmad</div>
+      <ul class="flex gap-6 text-sm md:text-base">
+        <li><a href="#about" class="hover:text-teal-300">About</a></li>
+        <li><a href="#skills" class="hover:text-teal-300">Skills</a></li>
+        <li><a href="#projects" class="hover:text-teal-300">Projects</a></li>
+        <li><a href="#contact" class="hover:text-teal-300">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section id="home" class="mx-auto max-w-6xl px-6 pt-24">
+    <div class="grid md:grid-cols-5 gap-8 items-center">
+      <div class="md:col-span-3 glass lift p-8">
+        <h1 class="text-4xl md:text-5xl font-extrabold neon">Frontend Developer</h1>
+        <p class="mt-4 text-gray-200">Hi, I'm <span class="font-semibold">M. Ahmad</span>. "I am a passionate learner and creator who believes in turning ideas into impactful solutions through creativity, technology, and consistent growth."My goal is simple: to bring your vision to life with clean design, smart code, and an unforgettable digital experience</p>
+        <div class="mt-6 flex gap-3 flex-wrap">
+          <button onclick="openWhatsApp()" class="gbtn">💬 WhatsApp</button>
+          <button onclick="openEmail()" class="gbtn">📧 Email</button>
+        </div>
+      </div>
+      <div class="md:col-span-2 glass lift p-8 text-center">
+        <div class="mx-auto w-40 h-40 rounded-2xl bg-gradient-to-br from-teal-300/30 to-fuchsia-300/30 flex items-center justify-center">
+          <span class="text-5xl">🧑‍💻</span>
+        </div>
+        <p class="mt-4 text-gray-300">Open for Frontend roles</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="mx-auto max-w-6xl px-6 pt-12">
+    <div class="glass lift p-8">
+      <h2 class="text-3xl font-bold neon">About Me</h2>
+      <p class="mt-4 text-gray-300">"I am a passionate learner and creator who believes in turning ideas into impactful solutions through creativity, technology, and consistent growth.".</p>
+    </div>
+  </section>
+
+  <section id="skills" class="mx-auto max-w-6xl px-6 pt-12">
+    <div class="glass lift p-8">
+      <h2 class="text-3xl font-bold neon">My Skills</h2>
+      <div class="mt-6 flex flex-wrap gap-3">
+        <span class="chip">HTML5</span>
+        <span class="chip">CSS3</span>
+        <span class="chip">JavaScript (ES6+)</span>
+        <span class="chip">Responsive Design</span>
+        <span class="chip">UI/UX</span>
+        <span class="chip">Git & GitHub</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects" class="mx-auto max-w-6xl px-6 pt-12">
+    <div class="glass lift p-8">
+      <h2 class="text-3xl font-bold neon">Projects</h2>
+      <div class="grid md:grid-cols-3 gap-6 mt-6">
+        <div class="glass lift p-4"><h3 class="text-xl neon">Portfolio Website</h3><p class="text-gray-300 mt-2">A sleek glassmorphic portfolio showcasing my skills.</p></div>
+        <div class="glass lift p-4"><h3 class="text-xl neon">Web Apps</h3><p class="text-gray-300 mt-2">Modern and interactive applications with clean UI.</p></div>
+        <div class="glass lift p-4"><h3 class="text-xl neon">Creative UI</h3><p class="text-gray-300 mt-2">Prototypes and UI concepts with advanced design.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="mx-auto max-w-6xl px-6 pt-12 pb-16">
+    <div class="grid md:grid-cols-2 gap-8">
+      <div class="glass lift p-8">
+        <h3 class="text-2xl font-bold neon">Contact</h3>
+        <div class="mt-6 flex flex-wrap gap-3">
+          <button onclick="openWhatsApp()" class="gbtn">💬 WhatsApp: 0305 5382290</button>
+          <button onclick="openEmail()" class="gbtn">📧 Email: ahmadamjad140lahore@gmail.com</button>
+        </div>
+      </div>
+      <div class="glass lift p-8">
+        <h4 class="text-xl font-semibold mb-4">Quick Message</h4>
+        <form id="msgForm" class="grid gap-4">
+          <input class="glass p-3 rounded-xl" type="text" id="name" placeholder="Your name" required />
+          <textarea class="glass p-3 rounded-xl h-32" id="message" placeholder="Write your message" required></textarea>
+          <button class="gbtn" type="submit">✉️ Send via Gmail</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer class="text-center text-gray-400 pb-6">© 2025 M. Ahmad — Frontend Developer</footer>
+
+  <script>
+    function openWhatsApp(){
+      window.open('https://wa.me/923055382290','_blank');
+    }
+    function openEmail(){
+      window.location.href = 'mailto:ahmadamjad140lahore@gmail.com';
+    }
+    document.getElementById('msgForm').addEventListener('submit', function(e){
+      e.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const msg = document.getElementById('message').value.trim();
+      const subject = encodeURIComponent('Portfolio inquiry from ' + name);
+      const body = encodeURIComponent(msg);
+      const gmail = `https://mail.google.com/mail/?view=cm&fs=1&to=ahmadamjad140lahore@gmail.com&su=${subject}&body=${body}`;
+      window.open(gmail, '_blank');
+    });
+  </script>
+</body>
+</html>
